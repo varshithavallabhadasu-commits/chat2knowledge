@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ContextForge — Conversation Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="#top"><span class="brand-mark">CF</span><span>context</span>forge</a>
+    <div class="nav-links"><a href="#forge">For Enterprise</a><a href="#forge">Use Cases</a><a href="#memory">Memory</a><a href="#outputs">Resources</a></div>
+    <div class="nav-actions"><a class="contact-link" href="#outputs">Export ↗</a><div id="status" class="status">Checking Hindsight…</div></div>
+  </nav>
+
+  <aside id="setup" class="setup-banner" hidden>
+    <div><strong>Connect Hindsight to activate persistent memory.</strong><span>Add <code>HINDSIGHT_API_URL</code> (and, for Cloud, <code>HINDSIGHT_API_KEY</code>) to <code>.env</code>, then restart.</span></div>
+    <a href="https://github.com/vectorize-io/hindsight#quick-start" target="_blank" rel="noreferrer">Hindsight setup ↗</a>
+  </aside>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CONVERSATION INTELLIGENCE</p>
+        <h1><em>Turn AI conversations</em> into reusable knowledge that compounds.</h1>
+        <p class="lede">ContextForge extracts important details, saves them in Hindsight, and uses them to personalize every future output.</p>
+        <div class="hero-actions"><a class="button primary" href="#forge"><span class="button-icon">↗</span> Start forging</a></div>
+      </div>
+      <div class="visual-stage" aria-label="ContextForge workflow preview">
+        <div class="peach-shape"></div>
+        <div class="memory-window">
+          <div class="window-top"><span></span><span></span><span></span><b>CONTEXTFORGE</b></div>
+          <div class="window-body"><small>MEMORY RECALL</small><strong>Keep technical explanations concise.</strong><p>Applied to your next output.</p></div>
+          <div class="window-chip">✦ Hindsight retained</div>
+        </div>
+        <div class="mini-card card-one"><span>01</span><b>Conversation</b><p>Long chat → useful signal</p></div>
+        <div class="mini-card card-two"><span>02</span><b>Reusable skill</b><p>Ready to export</p></div>
+      </div>
+    </section>
+    <div class="hero-dots" aria-label="Hero slideshow position"><span></span><span></span><span class="active"></span><span></span><span></span></div>
+
+    <section id="forge" class="section forge-section">
+      <header class="section-heading">
+        <div><p class="eyebrow">01 — THE FORGE</p><h2>Bring a conversation.</h2><p>Paste a chat, select the context worth keeping, and turn it into memory.</p></div>
+        <div class="demo-buttons"><button id="demo1" class="button ghost">Load demo 01</button><button id="demo2" class="button ghost">Load demo 02</button></div>
+      </header>
+      <div class="input-grid">
+        <article class="panel composer-panel">
+          <div class="panel-heading"><label for="conversation">Conversation input</label><label class="upload-label">Upload .txt or .md <input id="file" type="file" accept=".txt,.md"></label></div>
+          <textarea id="conversation" placeholder="Paste an AI conversation here…"></textarea>
+          <div class="extract-controls">
+            <p>Choose what to extract</p>
+            <div id="chips" class="chips"><button class="chip active">Knowledge</button><button class="chip">Decisions</button><button class="chip active">Preferences</button><button class="chip">Reusable Skill</button><button class="chip">Custom Focus</button></div>
+            <input id="focus" placeholder="Add a custom focus, if needed">
+          </div>
+          <button id="analyze" class="button primary wide">Extract &amp; retain <b>→</b></button>
+        </article>
+        <article class="panel insights-panel">
+          <span class="panel-badge">LIVE EXTRACTION</span><p class="eyebrow">EXTRACTED INFORMATION</p>
+          <div id="extracted" class="empty-state">Your refined knowledge will appear here.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="memory" class="section memory-section">
+      <header class="section-heading"><div><p class="eyebrow">02 — THE MEMORY</p><h2>What Hindsight recalled.</h2><p id="personalization">Run the second demo after the first to see retained preference applied.</p></div></header>
+      <div class="memory-path"><span>RETAIN</span><i></i><span>RECALL</span><i></i><span>PERSONALIZE</span></div>
+      <div id="memories" class="memory-list"><div class="memory-empty">No recalled memories yet.</div></div>
+    </section>
+
+    <section id="outputs" class="section outputs-section">
+      <header class="section-heading"><div><p class="eyebrow">03 — THE OUTPUT</p><h2>Make it reusable.</h2><p>Download a polished artifact shaped by the memories used above.</p></div></header>
+      <article class="output-card">
+        <div class="output-icon">↗</div><div><h3>Personalized document</h3><p>Exports carry the context that informed them.</p></div>
+        <div class="export-actions"><select id="format" aria-label="Output format"><option value="md">Reusable Skill (.md)</option><option value="txt">Plain text (.txt)</option><option value="docx">Document (.docx)</option><option value="pptx">Presentation (.pptx)</option></select><button id="export" class="button primary">Generate <b>↗</b></button></div>
+      </article>
+      <div id="downloads"></div>
+
+      <div class="backend-outputs">
+        <div class="backend-heading">
+          <p class="eyebrow">SAVED ON THE BACKEND — <code>app/outputs/</code></p>
+          <button id="refresh-outputs" class="button ghost small">Refresh</button>
+        </div>
+        <div id="output-list" class="output-list"><div class="memory-empty">No files generated yet.</div></div>
+      </div>
+    </section>
+  </main>
+  <footer>ContextForge <span>·</span> Powered by actual Hindsight retain + recall</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
